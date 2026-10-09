@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="372" viewBox="0 0 900 372" role="img" aria-labelledby="title desc">
+<title id="title">groove — a sixteen-step drum sequencer</title>
+<desc id="desc">An animated drum sequencer with three rows: Kick, Snare and Hat. Lit pads mark programmed hits as a playhead advances through sixteen steps at 120 bpm.</desc>
+<defs>
+  <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop class="p0"/><stop offset=".64" class="p1"/><stop offset="1" class="p2"/></linearGradient>
+  <radialGradient id="halo" cx=".2" cy=".1" r=".9"><stop stop-color="#535854"/><stop offset=".6" stop-color="#272c2b"/><stop offset="1" stop-color="#202524"/></radialGradient>
+  <linearGradient id="bevel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#777e76" stop-opacity=".55"/><stop offset=".17" stop-color="#525952" stop-opacity=".32"/><stop offset="1" stop-color="#090d0d" stop-opacity=".87"/></linearGradient>
+  <linearGradient id="idle" x1="0" y1="0" x2=".22" y2="1"><stop stop-color="#484d49"/><stop offset=".46" stop-color="#3e433f"/><stop offset="1" stop-color="#343a37"/></linearGradient>
+  <linearGradient id="kick" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#f0bf99"/><stop offset=".4" stop-color="#de9772"/><stop offset="1" stop-color="#ae6d50"/></linearGradient>
+  <linearGradient id="snare" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#e4dfd0"/><stop offset=".44" stop-color="#c4c2b2"/><stop offset="1" stop-color="#989b8c"/></linearGradient>
+  <linearGradient id="hat" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#b7cbbb"/><stop offset=".47" stop-color="#91aa99"/><stop offset="1" stop-color="#668171"/></linearGradient>
+  <pattern id="fibre" patternUnits="userSpaceOnUse" width="24" height="18">
+    <path d="M1 3h8M17 11h6M4 15h4" stroke="#848780" stroke-opacity=".085" stroke-width=".35"/>
+    <circle cx="15" cy="5" r=".5" fill="#6a7269" opacity=".16"/>
+  </pattern>
+  <filter id="shadow" x="-12%" y="-22%" width="124%" height="160%">
+    <feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#4e514b" flood-opacity=".21"/>
+    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#090f0e" flood-opacity=".17"/>
+  </filter>
+  <filter id="noise" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".78" numOctaves="2" seed="7" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope=".085"/></feComponentTransfer>
+  </filter>
+  <clipPath id="clip"><rect x="24" y="24" width="852" height="312" rx="22"/></clipPath>
+  <g id="pi">
+    <rect x="-1" y="1" width="36" height="36" rx="8" fill="#101615" opacity=".85"/>
+    <rect width="34" height="35" rx="7.4" fill="url(#idle)" stroke="#626c65" stroke-opacity=".6" stroke-width=".85"/>
+    <path d="M6 3.8h22" stroke="#fff8e8" stroke-opacity=".09" stroke-width=".7" stroke-linecap="round"/>
+    <path d="M7 32.7h20" stroke="#0b1311" stroke-opacity=".27" stroke-width=".85" stroke-linecap="round"/>
+  </g>
+  <g id="pk">
+    <rect x="-1" y="1" width="36" height="36" rx="8" fill="#101615" opacity=".85"/>
+    <rect width="34" height="35" rx="7.4" fill="url(#kick)" stroke="#a66b50" stroke-opacity=".6" stroke-width=".85"/>
+    <path d="M6 3.8h22" stroke="#fff8e8" stroke-opacity=".34" stroke-width=".7" stroke-linecap="round"/>
+    <path d="M7 32.7h20" stroke="#0b1311" stroke-opacity=".27" stroke-width=".85" stroke-linecap="round"/>
+  </g>
+  <g id="ps">
+    <rect x="-1" y="1" width="36" height="36" rx="8" fill="#101615" opacity=".85"/>
+    <rect width="34" height="35" rx="7.4" fill="url(#snare)" stroke="#b8b7a6" stroke-opacity=".6" stroke-width=".85"/>
+    <path d="M6 3.8h22" stroke="#fff8e8" stroke-opacity=".34" stroke-width=".7" stroke-linecap="round"/>
+    <path d="M7 32.7h20" stroke="#0b1311" stroke-opacity=".27" stroke-width=".85" stroke-linecap="round"/>
+  </g>
+  <g id="ph">
+    <rect x="-1" y="1" width="36" height="36" rx="8" fill="#101615" opacity=".85"/>
+    <rect width="34" height="35" rx="7.4" fill="url(#hat)" stroke="#79927f" stroke-opacity=".6" stroke-width=".85"/>
+    <path d="M6 3.8h22" stroke="#fff8e8" stroke-opacity=".34" stroke-width=".7" stroke-linecap="round"/>
+    <path d="M7 32.7h20" stroke="#0b1311" stroke-opacity=".27" stroke-width=".85" stroke-linecap="round"/>
+  </g>
+</defs>
+
+<style>
+  text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .p0 { stop-color: #f3f1ec; } .p1 { stop-color: #ebe9e3; } .p2 { stop-color: #e4e2db; }
+  .name { fill: #e8e9e2; font-size: 15px; font-weight: 500; letter-spacing: -.15px; }
+  .n { fill: #a6aea4; font-size: 11px; font-weight: 500; text-anchor: middle; }
+  .f { fill: #fff9e4; opacity: 0; animation: flash 2s linear infinite; }
+  .playhead { animation: scan 2s linear infinite; }
+  .heartbeat { animation: breathe 2s ease-in-out infinite; }
+  @keyframes scan {
+    0%, 6.24% { transform: translateX(0px); }
+    6.25%, 12.49% { transform: translateX(40px); }
+    12.5%, 18.74% { transform: translateX(80px); }
+    18.75%, 24.99% { transform: translateX(120px); }
+    25%, 31.24% { transform: translateX(172px); }
+    31.25%, 37.49% { transform: translateX(212px); }
+    37.5%, 43.74% { transform: translateX(252px); }
+    43.75%, 49.99% { transform: translateX(292px); }
+    50%, 56.24% { transform: translateX(344px); }
+    56.25%, 62.49% { transform: translateX(384px); }
+    62.5%, 68.74% { transform: translateX(424px); }
+    68.75%, 74.99% { transform: translateX(464px); }
+    75%, 81.24% { transform: translateX(516px); }
+    81.25%, 87.49% { transform: translateX(556px); }
+    87.5%, 93.74% { transform: translateX(596px); }
+    93.75%, 100% { transform: translateX(636px); }
+  }
+  @keyframes flash { 0% { opacity: .55; } 5% { opacity: .14; } 11%, 100% { opacity: 0; } }
+  @keyframes breathe { 0%, 100% { opacity: .55; } 48% { opacity: 1; } }
+  @media (max-width: 560px) {
+    .name { font-size: 22px; letter-spacing: -.2px; }
+    .n { font-size: 16px; }
+  }
+  @media (prefers-color-scheme: dark) {
+    .p0 { stop-color: #202524; } .p1 { stop-color: #1b2020; } .p2 { stop-color: #171b1b; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .playhead, .f, .heartbeat { animation: none; }
+  }
+</style>
+
+<rect width="900" height="372" rx="22" fill="url(#paper)"/>
+<rect width="900" height="372" rx="22" fill="url(#fibre)"/>
+
+<!-- Panel: satin-machined coating -->
+<rect x="24" y="25" width="852" height="312" rx="22" fill="#1a201d" filter="url(#shadow)"/>
+<rect x="24.5" y="24.5" width="851" height="311" rx="21.5" fill="url(#halo)" stroke="url(#bevel)" stroke-width="1.5"/>
+<g clip-path="url(#clip)">
+  <rect x="24" y="24" width="852" height="312" filter="url(#noise)" opacity=".33"/>
+  <path d="M46 25h808" stroke="#d7e1d4" stroke-opacity=".22"/>
+  <path d="M46 335h808" stroke="#050909" stroke-opacity=".6"/>
+</g>
+
+<!-- Header -->
+<text x="64" y="84" font-size="32" font-weight="600" letter-spacing="-1.6" fill="#f0eee5" textLength="90" lengthAdjust="spacing">groove</text>
+<circle cx="167" cy="75" r="4" fill="#e2ab85" opacity=".32"/>
+<circle class="heartbeat" cx="167" cy="75" r="2.25" fill="#efbe98"/>
+<text x="729" y="83" font-size="26" font-weight="500" letter-spacing="-.9" fill="#e9e8df" text-anchor="end">120</text>
+<text x="743" y="83" font-size="13" font-weight="400" letter-spacing="-.15" fill="#aaafa6">bpm</text>
+<rect x="788" y="62" width="48" height="30" rx="15" fill="#2a302d" stroke="#6b746c" stroke-opacity=".54"/>
+<text x="812" y="81.5" text-anchor="middle" font-size="12" font-weight="500" fill="#c8c9be">4/4</text>
+<path d="M64 108.5H836" stroke="#8a9388" stroke-opacity=".32"/>
+<path d="M64 109.5H836" stroke="#050a09" stroke-opacity=".35"/>
+
+<!-- Grid -->
+<text class="n" x="183" y="146">1</text>
+<text class="n" x="355" y="146">2</text>
+<text class="n" x="527" y="146">3</text>
+<text class="n" x="699" y="146">4</text>
+<path d="M329 152V301" stroke="#a4ada1" stroke-opacity=".18" stroke-width=".8"/>
+<path d="M501 152V301" stroke="#a4ada1" stroke-opacity=".18" stroke-width=".8"/>
+<path d="M673 152V301" stroke="#a4ada1" stroke-opacity=".18" stroke-width=".8"/>
+<text class="name" x="64" y="185">Kick</text>
+<text class="name" x="64" y="237">Snare</text>
+<text class="name" x="64" y="289">Hat</text>
+<g class="playhead" aria-hidden="true">
+  <rect x="161" y="154" width="44" height="155" rx="10" fill="#e4b28f" fill-opacity=".07"/>
+  <path d="M172 153h22" stroke="#efb58b" stroke-width="2.4" stroke-linecap="round" opacity=".96"/>
+</g>
+<use href="#pk" x="166" y="162"/>
+<use href="#pi" x="206" y="162"/>
+<use href="#pi" x="246" y="162"/>
+<use href="#pi" x="286" y="162"/>
+<use href="#pi" x="338" y="162"/>
+<use href="#pi" x="378" y="162"/>
+<use href="#pk" x="418" y="162"/>
+<use href="#pi" x="458" y="162"/>
+<use href="#pk" x="510" y="162"/>
+<use href="#pi" x="550" y="162"/>
+<use href="#pi" x="590" y="162"/>
+<use href="#pk" x="630" y="162"/>
+<use href="#pi" x="682" y="162"/>
+<use href="#pi" x="722" y="162"/>
+<use href="#pi" x="762" y="162"/>
+<use href="#pi" x="802" y="162"/>
+<use href="#pi" x="166" y="214"/>
+<use href="#pi" x="206" y="214"/>
+<use href="#pi" x="246" y="214"/>
+<use href="#pi" x="286" y="214"/>
+<use href="#ps" x="338" y="214"/>
+<use href="#pi" x="378" y="214"/>
+<use href="#pi" x="418" y="214"/>
+<use href="#pi" x="458" y="214"/>
+<use href="#pi" x="510" y="214"/>
+<use href="#pi" x="550" y="214"/>
+<use href="#pi" x="590" y="214"/>
+<use href="#pi" x="630" y="214"/>
+<use href="#ps" x="682" y="214"/>
+<use href="#pi" x="722" y="214"/>
+<use href="#pi" x="762" y="214"/>
+<use href="#pi" x="802" y="214"/>
+<use href="#ph" x="166" y="266"/>
+<use href="#pi" x="206" y="266"/>
+<use href="#ph" x="246" y="266"/>
+<use href="#pi" x="286" y="266"/>
+<use href="#ph" x="338" y="266"/>
+<use href="#pi" x="378" y="266"/>
+<use href="#ph" x="418" y="266"/>
+<use href="#pi" x="458" y="266"/>
+<use href="#ph" x="510" y="266"/>
+<use href="#pi" x="550" y="266"/>
+<use href="#ph" x="590" y="266"/>
+<use href="#pi" x="630" y="266"/>
+<use href="#ph" x="682" y="266"/>
+<use href="#pi" x="722" y="266"/>
+<use href="#ph" x="762" y="266"/>
+<use href="#pi" x="802" y="266"/>
+<rect class="f" x="167" y="163" width="32" height="33" rx="6.4" style="animation-delay:0s"/>
+<rect class="f" x="419" y="163" width="32" height="33" rx="6.4" style="animation-delay:-1.25s"/>
+<rect class="f" x="511" y="163" width="32" height="33" rx="6.4" style="animation-delay:-1s"/>
+<rect class="f" x="631" y="163" width="32" height="33" rx="6.4" style="animation-delay:-0.625s"/>
+<rect class="f" x="339" y="215" width="32" height="33" rx="6.4" style="animation-delay:-1.5s"/>
+<rect class="f" x="683" y="215" width="32" height="33" rx="6.4" style="animation-delay:-0.5s"/>
+<rect class="f" x="167" y="267" width="32" height="33" rx="6.4" style="animation-delay:0s"/>
+<rect class="f" x="247" y="267" width="32" height="33" rx="6.4" style="animation-delay:-1.75s"/>
+<rect class="f" x="339" y="267" width="32" height="33" rx="6.4" style="animation-delay:-1.5s"/>
+<rect class="f" x="419" y="267" width="32" height="33" rx="6.4" style="animation-delay:-1.25s"/>
+<rect class="f" x="511" y="267" width="32" height="33" rx="6.4" style="animation-delay:-1s"/>
+<rect class="f" x="591" y="267" width="32" height="33" rx="6.4" style="animation-delay:-0.75s"/>
+<rect class="f" x="683" y="267" width="32" height="33" rx="6.4" style="animation-delay:-0.5s"/>
+<rect class="f" x="763" y="267" width="32" height="33" rx="6.4" style="animation-delay:-0.25s"/>
+</svg>
