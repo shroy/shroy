@@ -1,6 +1,7 @@
-# Josh Shroy
+### Hey, I'm Josh.
 
-Software engineer focused on solving complex problems,
-thoughtful architecture, and building software that lasts.
+Software engineer. Former audio engineer. Still a drummer.
 
-Former audio engineer. Still a drummer.
+<img src="assets/groove-sequencer.svg" alt="An animated sixteen-step drum sequencer playing a kick, snare and hi-hat pattern at 120 bpm." width="100%">
+
+I enjoy solving complex problems, designing thoughtful systems, and making complicated things simpler.
